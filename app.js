@@ -2,18 +2,13 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const { sequelize, User } = require("./models");
-const userRoutes = require("./routes/userRoutes");
-const categoryRoutes = require("./routes/categoryRoutes");
-const bookRoutes = require("./routes/bookRoutes");
-const resetPass=require("./routes/passwordResetRoutes")
+const mainRouter = require("./routes/mainRouter");
 
 app.use(express.json());
 
 
-app.use("/",userRoutes); 
-app.use("/", categoryRoutes); 
-app.use("/", bookRoutes); 
-app.use("/",resetPass);
+app.use("/", mainRouter);
+
 
 
 
